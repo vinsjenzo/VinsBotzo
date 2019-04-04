@@ -1,5 +1,7 @@
 import discord
 import logging
+import os
+access_token= os.environ["ACCESS_TOKEN"]
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -40,4 +42,4 @@ async def on_member_update(before, after):
 		fmt = '{0.mention} is now {0.status}.'
 		await client.send_message(channel, fmt.format(after))
 
-client.run(token)
+client.run(access_token)
