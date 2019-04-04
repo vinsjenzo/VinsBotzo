@@ -28,11 +28,11 @@ async def on_ready():
     
 @client.event
 async def on_server_join(server):
-    channel = discord.utils.get(server.channels, name='Status Reports')
+    channel = discord.utils.get(server.channels, name='status-reports')
     if channel:
         return
     else:
-        await client.create_channel(server, 'Status Reports', type=discord.ChannelType.text)
+        await client.create_channel(server, 'status-reports', type=discord.ChannelType.text)
 
 @client.event 
 async def on_typing(channel, user, when):
@@ -55,7 +55,7 @@ async def on_message_delete(message):
 @client.event
 async def on_member_update(before, after):
     #if before.status == offline & after.status == online:
-    channel = discord.utils.get(after.server.channels, name='Status Reports')
+    channel = discord.utils.get(after.server.channels, name='status-reports')
     if channel:
         print('{}: {}'.format(channel.name, channel.id))
         fmt = '{0.mention} is now {0.status}.'
