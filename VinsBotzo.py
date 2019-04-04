@@ -40,4 +40,4 @@ async def on_member_update(before, after):
 		fmt = '{0.mention} is now {0.status}.'
 		await client.send_message(channel, fmt.format(after))
 
-client.run("NTYzMTE4MDY5NTg1Njc0MjUw.XKUsvw.ChE2gGyba20FfKv6g1eiyC9zIJE")
+client.run(token)
