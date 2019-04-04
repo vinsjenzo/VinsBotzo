@@ -24,7 +24,7 @@ async def on_ready():
 	await client.change_presence(game=discord.Game(name="Making a bot"))
 
 @client.event 
-async def discord.on_typing(channel, user, when):
+async def on_typing(channel, user, when):
 	await client.change_presence(random.choice(gameNames))
 	
 @client.event
