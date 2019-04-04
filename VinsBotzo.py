@@ -9,7 +9,11 @@ handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w'
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
+
+gameNames = ["Making a bot", "Fixing chiemies", "Smoking some dank weed", "Popping a molly", "Making some dinner", "Banging your mom"]
+
 client = discord.Client()
+
 
 @client.event
 async def on_ready():
@@ -19,6 +23,10 @@ async def on_ready():
 	print('------')
 	await client.change_presence(game=discord.Game(name="Making a bot"))
 
+@client.event 
+async def discord.on_typing(channel, user, when):
+	await client.change_presence(random.choice(gameNames))
+	
 @client.event
 async def on_message(message):
 	if message.author == client.user:
