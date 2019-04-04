@@ -1,6 +1,8 @@
 import discord
 import logging
 import os
+import random 
+
 access_token= os.environ["ACCESS_TOKEN"]
 
 logger = logging.getLogger('discord')
@@ -25,7 +27,7 @@ async def on_ready():
 
 @client.event 
 async def on_typing(channel, user, when):
-	await client.change_presence(random.choice(gameNames))
+	await client.change_presence(game=discord.Game(name=random.choice(gameNames)))
 	
 @client.event
 async def on_message(message):
