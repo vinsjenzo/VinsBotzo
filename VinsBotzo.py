@@ -24,7 +24,7 @@ async def on_message(message):
 	if message.author == client.user:
 		return
 	if "mij niet bellen" in message.content.lower():
-		await client.send_message(message.channel, "OK :telephone:")
+		await client.send_message(message.channel, "OK BRUUR :telephone:")
 
 @client.event
 async def on_message_delete(message):
